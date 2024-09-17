@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<title>QUESTÃO XX - LISTA XX - LÓGICA DE PROGRAMAÇÃO - SENAI</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+		<link href="../../css/styles.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+
+
+<div class="flex flex-col items-center justify-center min-h-screen bg-[#0b3d0b] p-4 space-y-4">
+  <div class="bg-white rounded-lg p-4 w-full max-w-xs">
+    <h2 class="text-xl font-bold mb-4">Cadastrar Receita</h2>
+    <div class="space-y-4">
+      <div>
+        <label for="income-amount" class="block font-bold">
+          Valor da Receita
+        </label>
+        <input
+          id="income-amount"
+          type="number"
+          class="w-full border rounded-md px-3 py-2"
+          placeholder="Digite o valor da receita"
+        />
+      </div>
+      <div class="flex items-center justify-between">
+        <label for="received-toggle" class="font-bold">
+          Recebido
+        </label>
+        <button
+          type="button"
+          aria-pressed="false"
+          data-state="off"
+          class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors hover:bg-muted hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-accent data-[state=on]:text-accent-foreground bg-transparent h-10 px-3"
+          id="received-toggle"
+        ></button>
+      </div>
+      <div>
+        <label for="income-date" class="block font-bold">
+          Data
+        </label>
+        <input id="income-date" class="w-full border rounded-md px-3 py-2" type="date" />
+      </div>
+      <div>
+        <label for="income-description" class="block font-bold">
+          Descrição
+        </label>
+        <textarea
+          id="income-description"
+          class="w-full border rounded-md px-3 py-2"
+          rows="3"
+          placeholder="Digite a descrição da receita"
+        ></textarea>
+      </div>
+      <div>
+        <label for="income-category" class="block font-bold">
+          Categoria
+        </label>
+        <input
+          type="text"
+          id="income-category"
+          class="w-full border rounded-md px-3 py-2"
+          placeholder="Digite a categoria da receita"
+        />
+      </div>
+      <div>
+        <label for="income-account" class="block font-bold">
+          Conta
+        </label>
+        <input
+          type="text"
+          id="income-account"
+          class="w-full border rounded-md px-3 py-2"
+          placeholder="Digite a conta da receita"
+        />
+      </div>
+      <div class="flex justify-end">
+        <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+          Salvar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
