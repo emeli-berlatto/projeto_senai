@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<title>QUESTÃO XX - LISTA XX - LÓGICA DE PROGRAMAÇÃO - SENAI</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+		<link href="../../css/styles.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+
+
+<div class="flex flex-col items-center justify-center min-h-screen bg-[#0b3d0b] p-4 space-y-4">
+  <div class="bg-white rounded-lg p-4 w-full max-w-3xl shadow-lg border-2 border-gray-200">
+    <h2 class="text-xl font-bold mb-4">Histórico de Transações</h2>
+    <div class="space-y-6">
+      <div class="space-y-4">
+        <div class="font-bold text-lg">23/04/2023</div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div class="rounded-lg bg-card text-card-foreground shadow-lg border-2 border-gray-200" data-v0-t="card">
+            <div class="p-6 space-y-2">
+              <div class="font-medium">Compra no Mercado</div>
+              <div class="text-sm text-muted-foreground">Categoria: Alimentação</div>
+              <div class="text-sm text-muted-foreground">Conta: Cartão de Crédito</div>
+              <div class="font-bold text-red-500">R$ 120,00</div>
+            </div>
+          </div>
+          <div class="rounded-lg bg-card text-card-foreground shadow-lg border-2 border-gray-200" data-v0-t="card">
+            <div class="p-6 space-y-2">
+              <div class="font-medium">Pagamento de Aluguel</div>
+              <div class="text-sm text-muted-foreground">Categoria: Moradia</div>
+              <div class="text-sm text-muted-foreground">Conta: Conta Corrente</div>
+              <div class="font-bold text-red-500">R$ 800,00</div>
+            </div>
+          </div>
+          <div class="rounded-lg bg-card text-card-foreground shadow-lg border-2 border-gray-200" data-v0-t="card">
+            <div class="p-6 space-y-2">
+              <div class="font-medium">Compra de Roupas</div>
+              <div class="text-sm text-muted-foreground">Categoria: Vestuário</div>
+              <div class="text-sm text-muted-foreground">Conta: Cartão de Crédito</div>
+              <div class="font-bold text-red-500">R$ 250,00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="space-y-4">
+        <div class="font-bold text-lg">22/04/2023</div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div class="rounded-lg bg-card text-card-foreground shadow-lg border-2 border-gray-200" data-v0-t="card">
+            <div class="p-6 space-y-2">
+              <div class="font-medium">Jantar com Amigos</div>
+              <div class="text-sm text-muted-foreground">Categoria: Lazer</div>
+              <div class="text-sm text-muted-foreground">Conta: Cartão de Crédito</div>
+              <div class="font-bold text-red-500">R$ 180,00</div>
+            </div>
+          </div>
+          <div class="rounded-lg bg-card text-card-foreground shadow-lg border-2 border-gray-200" data-v0-t="card">
+            <div class="p-6 space-y-2">
+              <div class="font-medium">Compra de Livros</div>
+              <div class="text-sm text-muted-foreground">Categoria: Educação</div>
+              <div class="text-sm text-muted-foreground">Conta: Conta Corrente</div>
+              <div class="font-bold text-green-500">R$ 120,00</div>
+            </div>
+          </div>
+          <div class="rounded-lg bg-card text-card-foreground shadow-lg border-2 border-gray-200" data-v0-t="card">
+            <div class="p-6 space-y-2">
+              <div class="font-medium">Compra de Roupas</div>
+              <div class="text-sm text-muted-foreground">Categoria: Vestuário</div>
+              <div class="text-sm text-muted-foreground">Conta: Cartão de Crédito</div>
+              <div class="font-bold text-red-500">R$ 250,00</div>
+            </div>
+          </div>
+          <div class="rounded-lg bg-card text-card-foreground shadow-lg border-2 border-gray-200" data-v0-t="card">
+            <div class="p-6 space-y-2">
+              <div class="font-medium">Compra de Roupas</div>
+              <div class="text-sm text-muted-foreground">Categoria: Vestuário</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
