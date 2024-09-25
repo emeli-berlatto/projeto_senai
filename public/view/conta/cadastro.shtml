@@ -7,65 +7,61 @@
 		<link href="../../css/styles.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
-
+<!--#include virtual="../menu/index.shtml" -->
 
 <div class="flex flex-col items-center justify-center min-h-screen bg-[#0b3d0b] p-4 space-y-4">
   <div class="bg-white rounded-lg p-4 w-full max-w-xs">
+    <form id="form">
+      <input
+				class="hidden"
+				id="id"
+			/>
     <h2 class="text-xl font-bold mb-4">Cadastrar Instituição</h2>
     <div class="space-y-4">
       <div>
-        <label for="institution-name" class="block font-bold">
+        <label for="banco" class="block font-bold">
           Instituição
         </label>
         <input
-          id="institution-name"
+          id="banco"
           class="w-full border rounded-md px-3 py-2"
           placeholder="Digite o nome da instituição"
           type="text"
         />
       </div>
       <div>
-        <label for="institution-description" class="block font-bold">
+        <label for="descricao" class="block font-bold">
           Descrição
         </label>
         <textarea
-          id="institution-description"
+          id="descricao"
           class="w-full border rounded-md px-3 py-2"
           placeholder="Digite a descrição da instituição"
         ></textarea>
       </div>
       <div>
-        <label for="institution-balance" class="block font-bold">
+        <label for="saldo" class="block font-bold">
           Saldo
         </label>
         <input
-          id="institution-balance"
+          id="saldo"
           class="w-full border rounded-md px-3 py-2"
           placeholder="Digite o saldo da instituição"
           type="number"
         />
       </div>
       <div class="flex justify-between">
-        <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+        <button id="cancelar" type="button" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
           Cancelar
         </button>
-        <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+        <button type="submit" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 bg-black text-white">
           Salvar
         </button>
       </div>
     </div>
-  </div>
-  <div class="bg-white rounded-lg p-4 w-full max-w-xs text-center">
-    <h2 class="text-xl font-bold">Metas</h2>
-    <div class="flex justify-between">
-      <p>Viagem</p>
-      <p class="text-green-600">R$ 2000/R$5000</p>
-    </div>
-    <div class="flex justify-between">
-      <p>Carro</p>
-      <p class="text-green-600">R$ 3000/R$20000</p>
-    </div>
+  </form>
   </div>
 </div>
 </body>
+<script src="../../js/conta/cadastro.js"></script>
 </html>

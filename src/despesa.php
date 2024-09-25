@@ -42,7 +42,7 @@ class Despesa {
             t.*,
             c.descricao categoria, 
             c2.descricao conta,
-            DATE_FORMAT(t.data, '%d/%m/%Y') \"data\"
+            DATE_FORMAT(t.data, '%d/%m/%Y') data_formatada
         FROM transacoes t
         inner join categoria c on (
             t.id_categoria=c.id
@@ -51,7 +51,7 @@ class Despesa {
         inner join conta c2 on (
             t.id_conta=c2.id
         )
-        WHERE id = ?";
+        WHERE t.id = ?";
         $stm = $this->conn->prepare($sql);
 
         $stm->bind_param('i', $id);
@@ -87,7 +87,7 @@ class Despesa {
         $sql = "UPDATE transacoes SET 
             valor = ?,
             efetuado = ?,
-            \"data\" = ?,
+            data = ?,
             descricao = ?,
             id_categoria = ?,
             id_conta = ?
@@ -96,7 +96,7 @@ class Despesa {
         $stm = $this->conn->prepare($sql);
 
         $stm->bind_param(
-           'fissiii', 
+           'dissiii', 
             $data['valor'], 
             $data['efetuado'], 
             $data['data'], 
@@ -107,7 +107,7 @@ class Despesa {
         );
         $stm->execute();
 
-        if ($stm->affected_rows > 0) {
+        if (!$stm->error) {
             return ['status' => 'ok', 'msg' => 'Registro atualizado com sucesso'];
         }
 
@@ -118,7 +118,7 @@ class Despesa {
         $sql = "INSERT INTO transacoes ( 
             valor,
             efetuado,
-            \"data\",
+            data,
             descricao,
             id_categoria,
             id_conta
@@ -126,14 +126,21 @@ class Despesa {
 
         $stm = $this->conn->prepare($sql);
 
+        $valor = $data['valor'];
+        $efetuado = !empty($data['efetuado']) && is_numeric($data['efetuado']) ? $data['efetuado'] : 1;
+        $dataValue = $data['data'];
+        $descricao = $data['descricao'];
+        $id_categoria = $data['categoria'];
+        $id_conta = $data['conta'];
+
         $stm->bind_param(
-            'fissii', 
-            $data['valor'], 
-            $data['efetuado'], 
-            $data['data'], 
-            $data['descricao'], 
-            $data['categoria'], 
-            $data['conta']
+            'dissii', 
+            $valor, 
+            $efetuado, 
+            $dataValue, 
+            $descricao, 
+            $id_categoria, 
+            $id_conta
         );
         $stm->execute();
 
@@ -181,7 +188,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    if (isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], 'pessoa/cadastro')) {
+    if (isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], 'despesa/cadastro')) {
         echo json_encode($despesa->getById($_GET['id']));
         return;
     }

@@ -31,9 +31,9 @@ class Metas {
     function getById($id) {
         $sql = "SELECT 
             m.*,
-            DATE_FORMAT(m.data, '%d/%m/%Y') \"data\"
+            DATE_FORMAT(m.data, '%d/%m/%Y') data_formatada
         FROM metas m 
-        WHERE id = ?";
+        WHERE m.id = ?";
         $stm = $this->conn->prepare($sql);
 
         $stm->bind_param('i', $id);
@@ -67,7 +67,7 @@ class Metas {
 
     function updateById($id, $data) {
         $sql = "UPDATE metas SET 
-            \"data\" = ?,
+            data = ?,
             descricao = ?,
             valor = ?
         WHERE id = ?";
@@ -75,7 +75,7 @@ class Metas {
         $stm = $this->conn->prepare($sql);
 
         $stm->bind_param(
-           'ssfi',  
+           'ssdi',  
             $data['data'], 
             $data['descricao'], 
             $data['valor'], 
@@ -83,7 +83,7 @@ class Metas {
         );
         $stm->execute();
 
-        if ($stm->affected_rows > 0) {
+        if (!$stm->error) {
             return ['status' => 'ok', 'msg' => 'Registro atualizado com sucesso'];
         }
 
@@ -92,16 +92,17 @@ class Metas {
 
     function create($data) {
         $sql = "INSERT INTO metas ( 
-            \"data\" = ?,
-            descricao = ?,
-            valor = ?
+            data,
+            descricao,
+            valor
         ) VALUES (?, ?, ?)";
 
         $stm = $this->conn->prepare($sql);
+        $dataValue = $data['data'];
 
         $stm->bind_param(
-            'ssf',  
-            $data['data'], 
+            'ssd',  
+            $dataValue, 
             $data['descricao'], 
             $data['valor'], 
         );
@@ -151,7 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    if (isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], 'pessoa/cadastro')) {
+    if (isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], 'metas/cadastro')) {
         echo json_encode($metas->getById($_GET['id']));
         return;
     }

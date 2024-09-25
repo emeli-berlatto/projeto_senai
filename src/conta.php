@@ -39,7 +39,7 @@ class Conta {
         inner join bancos b on (
             c.id_banco=b.id
         )
-        WHERE id = ?";
+        WHERE c.id = ?";
         $stm = $this->conn->prepare($sql);
 
         $stm->bind_param('i', $id);
@@ -81,7 +81,7 @@ class Conta {
         $stm = $this->conn->prepare($sql);
 
         $stm->bind_param(
-            'sifi', 
+            'sidi', 
             $data['descricao'], 
             $data['banco'], 
             $data['saldo'], 
@@ -89,7 +89,7 @@ class Conta {
         );
         $stm->execute();
 
-        if ($stm->affected_rows > 0) {
+        if (!$stm->error) {
             return ['status' => 'ok', 'msg' => 'Registro atualizado com sucesso'];
         }
 
@@ -106,7 +106,7 @@ class Conta {
         $stm = $this->conn->prepare($sql);
 
         $stm->bind_param(
-            'sif', 
+            'sid', 
             $data['descricao'], 
             $data['banco'], 
             $data['saldo']
@@ -157,7 +157,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    if (isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], 'pessoa/cadastro')) {
+    if (isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], 'conta/cadastro')) {
         echo json_encode($conta->getById($_GET['id']));
         return;
     }
